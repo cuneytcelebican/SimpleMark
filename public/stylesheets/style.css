@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url('https://fonts.googleapis.com/css?family=Cabin:700i');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color:#555555;
+}
+
+label{
+    font-weight: 400;
+}
+
+.navbar-brand {
+  font-family: 'Cabin', sans-serif;
+  color: #337ab7;
+  letter-spacing: -1.6px;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.category-header {
+  font-weight: 900;
+  background: #ececec;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+}
+.category-header:first-child {
+  text-transform: uppercase;
+}
+
+.category-container {
+  margin-bottom: 20px;
+}
+.category-content {
+  margin-bottom: 10px;
+}
+.category-content:last-child {
+  margin-bottom: 0px;
+}
+.categoryMark:before {
+  content: "Category Mark: ";
+  font-weight: 400;
+  font-size: 11px;
+  font-style: italic;
+}
+.student-mark{
+  text-align: right;
+}
+.student-mark>input {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+.student-mark>input:disabled {
+  background: #e6e6e6;
+  border: 1px solid #797979;
+}
+.disabled-mark {
+  text-align: left;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.content-header {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.download-button{
+  text-align: center;
+  margin: 20px 0px;
+}
