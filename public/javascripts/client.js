@@ -347,7 +347,12 @@ function createInput(container, className, content, disabled, categoryTitle, cat
                 let selectedCategory = markingSchema.find(item => item.categoryTitle === categoryTitle);
                 let selectedContent = selectedCategory ? selectedCategory.categoryContent.find(item => item.content === categoryContent) : null;
                 
-                if (selectedContent)
+                if (mark > selectedContent.total)
+                {
+                    alert(`"${selectedContent.content}" mark cannot be greater than ${selectedContent.total}`);
+                    elem.value = "";
+                }
+                else if (selectedContent)
                 {
                     selectedContent.given = mark;
                 }
