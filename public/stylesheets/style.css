@@ -2,22 +2,44 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin:700i');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
 
-body{
-    font-family: 'Roboto', sans-serif;
-    font-size: 13px;
-    color:#555555;
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: #555555;
+  background: #f7f9fa;
 }
 
 label{
     font-weight: 400;
 }
 
+.content-wrapper {
+  margin-top: 15px;
+  margin-bottom: 50px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
 .navbar-brand {
   font-family: 'Cabin', sans-serif;
-  color: #337ab7;
-  letter-spacing: -1.6px;
-  font-size: 30px;
-  line-height: 30px;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: -3px;
+}
+
+.navbar-light .navbar-brand {
+  margin: 0px auto;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.navbar-brand>span {
+  display: block;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0px;
+  font-style: italic;
+  margin-top: -8px;
 }
 
 .category-header {
@@ -39,27 +61,49 @@ label{
 .category-content:last-child {
   margin-bottom: 0px;
 }
+.categoryMark {
+  text-align: right;
+}
 .categoryMark:before {
   content: "Category Mark: ";
   font-weight: 400;
   font-size: 11px;
   font-style: italic;
 }
-.student-mark{
+.student-mark-container {
   text-align: right;
 }
-.student-mark>input {
+.student-mark {
   width: 25px;
   height: 25px;
   text-align: center;
 }
-.student-mark>input:disabled {
+.student-mark:disabled {
   background: #e6e6e6;
   border: 1px solid #797979;
 }
-.disabled-mark {
-  text-align: left;
+.input-wrapper {
+  width: 50px;
+  height: 45px;
+  margin-right: 10px;
+  float: left;
 }
+.input-wrapper:first-child:after {
+  content: "/";
+  font-size: 20px;
+  font-weight: 100;
+  margin-left: 1px;
+}
+.input-wrapper:last-child{
+  margin-right: 0px;
+}
+.student-mark {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  
+}
+
 
 textarea {
   width: 100%;

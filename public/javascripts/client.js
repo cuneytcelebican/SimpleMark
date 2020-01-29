@@ -241,10 +241,11 @@ function render()
             let categoryContentTextAreaWrapper = createDiv(categoryContent, "col-md-10", "");
             createTextArea(categoryContentTextAreaWrapper, "Add your feedback here!", item.categoryTitle, categoryItem.content);
             categoryContent.append(categoryContentTextAreaWrapper);
-
-            createInput(categoryContent, ["col-md-1", "student-mark"], categoryItem.given, false, item.categoryTitle, categoryItem.content);
-            createInput(categoryContent, ["col-md-1", "student-mark", "disabled-mark"], categoryItem.total, true, item.categoryTitle, categoryItem.content);
-            
+            let markInputWrapper = createDiv(categoryContent, ["col-md-2", "student-mark-container"], "");
+            let disabledMark = createInput(categoryContent, ["student-mark"], categoryItem.given, false, item.categoryTitle, categoryItem.content);
+            let enabledMark = createInput(categoryContent, ["student-mark", "disabled-mark"], categoryItem.total, true, item.categoryTitle, categoryItem.content);
+            markInputWrapper.append(disabledMark);
+            markInputWrapper.append(enabledMark);
             categoryContentWrapper.append(categoryContent);
             
         })
@@ -313,7 +314,7 @@ function createTextArea(container, placeholder, categoryTitle, categoryContent)
 function createInput(container, className, content, disabled, categoryTitle, categoryContent)
 {
     let inputContainer = document.createElement("div");
-    inputContainer.classList.add(className);
+    inputContainer.classList.add("input-wrapper");
 
     let input = document.createElement("input");
     input.disabled = disabled;
@@ -324,12 +325,12 @@ function createInput(container, className, content, disabled, categoryTitle, cat
     {
         className.forEach(item =>
         {
-            inputContainer.classList.add(item);
+            input.classList.add(item);
         });
     }
     else
     {
-        inputContainer.classList.add(className);
+        input.classList.add(className);
     }
 
     if (!disabled)
