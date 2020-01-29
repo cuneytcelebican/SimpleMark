@@ -86,15 +86,15 @@ label{
   width: 50px;
   height: 45px;
   margin-right: 10px;
-  float: left;
+  float: right;
 }
-.input-wrapper:first-child:after {
+.input-wrapper:last-child:after {
   content: "/";
   font-size: 20px;
   font-weight: 100;
   margin-left: 1px;
 }
-.input-wrapper:last-child{
+.input-wrapper:first-child{
   margin-right: 0px;
 }
 .student-mark {

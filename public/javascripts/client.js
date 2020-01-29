@@ -244,8 +244,9 @@ function render()
             let markInputWrapper = createDiv(categoryContent, ["col-md-2", "student-mark-container"], "");
             let disabledMark = createInput(categoryContent, ["student-mark"], categoryItem.given, false, item.categoryTitle, categoryItem.content);
             let enabledMark = createInput(categoryContent, ["student-mark", "disabled-mark"], categoryItem.total, true, item.categoryTitle, categoryItem.content);
-            markInputWrapper.append(disabledMark);
+            
             markInputWrapper.append(enabledMark);
+            markInputWrapper.append(disabledMark);
             categoryContentWrapper.append(categoryContent);
             
         })
