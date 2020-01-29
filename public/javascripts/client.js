@@ -340,22 +340,23 @@ function createInput(container, className, content, disabled, categoryTitle, cat
         {
             let elem = ev.target;
             let mark = parseInt(elem.value);
+
             let categoryTitle = elem.getAttribute("category-title");
             let categoryContent = elem.getAttribute("category-content");
-            if (mark > 0 && categoryTitle)
+            let selectedCategory = markingSchema.find(item => item.categoryTitle === categoryTitle);
+            let selectedContent = selectedCategory ? selectedCategory.categoryContent.find(item => item.content === categoryContent) : null;
+            
+            if (mark >= 0 && mark < selectedContent.total + 1)
             {
-                let selectedCategory = markingSchema.find(item => item.categoryTitle === categoryTitle);
-                let selectedContent = selectedCategory ? selectedCategory.categoryContent.find(item => item.content === categoryContent) : null;
-                
-                if (mark > selectedContent.total)
+                if (categoryTitle)
                 {
-                    alert(`"${selectedContent.content}" mark cannot be greater than ${selectedContent.total}`);
-                    elem.value = "";
-                }
-                else if (selectedContent)
-                {
+                    
                     selectedContent.given = mark;
                 }
+            }
+            else {
+                alert(`"${selectedContent.content}" mark must be between 0 and ${selectedContent.total}`);
+                elem.value = "";
             }
         });
         
