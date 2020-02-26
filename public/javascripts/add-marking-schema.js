@@ -149,13 +149,11 @@ function createLink()
         }
         markingSchema.push(obj);
     }
-    console.log(markingSchema);
     if(markingSchema.length && sendToDb)
     {
         sendToServer(markingSchema);
     }
 }
-
 
 function sendToServer(message)
 {
