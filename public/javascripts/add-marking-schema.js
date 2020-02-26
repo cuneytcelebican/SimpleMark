@@ -158,7 +158,10 @@ function sendToServer(message)
     
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
-        alert(window.location.origin + "/" + this.responseText)
+        let linkWrapper = document.getElementById("extractResult");
+        linkWrapper.innerText = "Your marking link is below \n" + window.location.origin + "/" + this.responseText;
+
+        $('#result').modal('show');
       }
     });
     
