@@ -4,7 +4,7 @@ var MarkingSchema = require('../models/marking');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('addMarkingSchema', { title: 'Add marking schema' });
 });
 
 router.get('/sample', function(req, res, next) {
