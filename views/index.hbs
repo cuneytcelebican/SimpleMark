@@ -1,22 +1,64 @@
-<div class="container content-wrapper" id="contentWrapper"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
 
+  <style type="text/css">
+    #jsoneditor {
+      width: 500px;
+      height: 500px;
+    }
 
-<!-- Modal -->
-<div class="modal fade" id="result" tabindex="-1" role="dialog" aria-labelledby="result" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Result</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div id="extractResult"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+    p {
+      width: 500px;
+      font-family: "DejaVu Sans", sans-serif;
+    }
+  </style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+
+            <div id="jsoneditor"></div>
+
+<script>
+  // create the editor
+  const container = document.getElementById('jsoneditor')
+  const options = {
+    autocomplete: {
+      applyTo:['value'],
+      filter: 'contain',
+      trigger: 'focus',
+      getOptions: function (text, path, input, editor) {
+        return new Promise(function (resolve, reject) {
+          const options = extractUniqueWords(editor.get())
+          if (options.length > 0) {
+            resolve(options)
+          } else {
+            reject()
+          }
+        })
+      }
+    }
+  }
+
+  // helper function to extract all unique words in the keys and values of a JSON object
+  function extractUniqueWords (json) {
+    return _.uniq(_.flatMapDeep(json, function (value, key) {
+      return _.isObject(value)
+              ? [key]
+              : [key, String(value)]
+    }))
+  }
+
+  const json = {
+    'array': [{'field1':'v1', 'field2':'v2'}, 2, 3],
+    'boolean': true,
+    'null': null,
+    'number': 123,
+    'object': {'a': 'b', 'c': 'd'},
+    'string': 'Hello World'
+  }
+  const editor = new JSONEditor(container, options, json)
+</script>
+        </div>
+        <div class="col-md-6">preview</div>
     </div>
-  </div>
 </div>

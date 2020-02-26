@@ -1,210 +1,46 @@
 let totalMark = 0;
 let markingSchema = [
     {
-        categoryTitle: "Initial Page Load",
-        categoryDescription: "",
-        categoryMark: 10,
-        categoryTotalMark: 0,
-        categoryContent: [
-            {
-                content: "Page contains drop-down list or other method of selecting restaurant",
-                feedback: "",
-                total: 3,
-                given: 0,
-            },
-            {
-                content: "Contents of drop-down list are dynamically created from available data",
-                feedback: "",
-                total: 7,
-                given: 0,
-            },
-        ]
+      "categoryTitle": "Category 1",
+      "categoryDescription": "",
+      "categoryMark": 10,
+      "categoryTotalMark": 0,
+      "categoryContent": [
+        {
+          "content": "asdas",
+          "feedback": "",
+          "given": 0,
+          "total": 1
+        },
+        {
+          "content": "sadasd",
+          "feedback": "",
+          "given": 0,
+          "total": 9
+        }
+      ]
     },
     {
-        categoryTitle: "When a Restaurant is Selected",
-        categoryDescription: "",
-        categoryMark: 20,
-        categoryTotalMark: 0,
-        categoryContent: [
-            {
-                content: "Confirmation prompt is shown if order exists",
-                feedback: "",
-                total: 1,
-                given: 0,
-            },
-            {
-                content: "Nothing changes on page if user selects cancel from confirmation prompt",
-                feedback: "",
-                total: 2,
-                given: 0,
-            },
-            {
-                content: "New menu is shown on page when change is confirmed, or if there is no current order",
-                feedback: "",
-                total: 3,
-                given: 0,
-            },
-            {
-                content: "All information from previous restaurant is removed",
-                feedback: "",
-                total: 2,
-                given: 0,
-            },
-            {
-                content: "Order information is reset, if it existed",
-                feedback: "",
-                total: 2,
-                given: 0,
-            },
-            {
-                content: "Restaurant's name, minimum order, and delivery fee are displayed near top of page",
-                feedback: "",
-                total: 4,
-                given: 0,
-            },
-            {
-                content: "Page has proper three-column format for categories, menu, and order summary",
-                feedback: "",
-                total: 6,
-                given: 0,
-            },
-        ]
-    },
-    {
-        categoryTitle: "Menu Requirements",
-        categoryDescription: "",
-        categoryMark: 20,
-        categoryTotalMark: 0,
-        categoryContent: [
-            {
-                content: "Categories are clearly distinct",
-                feedback: "",
-                total: 3,
-                given: 0,
-            },
-            {
-                content: "Items are clearly distinct",
-                feedback: "",
-                total: 3,
-                given: 0,
-            },
-            {
-                content: "Items show all item information (name, description, price)",
-                feedback: "",
-                total: 3,
-                given: 0,
-            },
-            {
-                content: "Add element is provided next to each item",
-                feedback: "",
-                total: 3,
-                given: 0,
-            },
-            {
-                content: "Add element increases quantity of correct item in order when clicked",
-                feedback: "",
-                total: 5,
-                given: 0,
-            },
-            {
-                content: "All dollar values rounded to two decimal places",
-                feedback: "",
-                total: 3,
-                given: 0,
-            },
-        ]
-    },
-    {
-        categoryTitle: "Order Summary Requirements",
-        categoryDescription: "",
-        categoryMark: 30,
-        categoryTotalMark: 0,
-        categoryContent: [
-            {
-                content: "Each item currently in the order is included",
-                feedback: "",
-                total: 2,
-                given: 0,
-            },
-            {
-                content: "Each item shows its name, number of units in the order, and total price",
-                feedback: "",
-                total: 2,
-                given: 0,
-            },
-            {
-                content: "Remove element is provided next to each item",
-                feedback: "",
-                total: 2,
-                given: 0,
-            },
-            {
-                content: "Clicking remove element decreases quantity of correct item in order",
-                feedback: "",
-                total: 6,
-                given: 0,
-            },
-            {
-                content: "Decreasing an item's quantity to 0 removes it from the summary",
-                feedback: "",
-                total: 4,
-                given: 0,
-            },
-            {
-                content: "Subtotal, tax, delivery fee, and total are calculated correctly and displayed",
-                feedback: "",
-                total: 4,
-                given: 0,
-            },
-            {
-                content: "Order button/element is displayed/hidden in correct cases",
-                feedback: "",
-                total: 4,
-                given: 0,
-            },
-            {
-                content: "'Add $X more to order' message is calculated and displayed in correct cases",
-                feedback: "",
-                total: 4,
-                given: 0,
-            },
-            {
-                content: "All dollar values rounded to two decimal places",
-                feedback: "",
-                total: 2,
-                given: 0,
-            },
-        ]
-    },
-    {
-        categoryTitle: "Overall Page Quality",
-        categoryDescription: "These marks will be allocated for the overall quality of your page's implementation. This will include factors such as the visual appeal of your page, as well as the responsiveness of your page to user actions and changes. For example, how does your page react to the changing of the browser dimensions? Is information easy to find on your page? Is everything on the page formatted in a clear way? If you struggle to make visually appealing pages, you can focus on adding behavioural elements to your page (e.g., aligning the categories and order summary with the current location in the menu).",
-        categoryMark: 10,
-        categoryTotalMark: 0,
-        categoryContent: [
-            {
-                content: "",
-                feedback: "",
-                total: 10,
-                given: 0,
-            },
-        ]
-    },
-    {
-        categoryTitle: "Code Quality and Documentation",
-        categoryDescription: "Your code should be well-written and easy to understand. This includes providing clear documentation explaining the purpose and function of pieces of your code. You should use good variable/function names that make your code easier to read. You should do your best to avoid unnecessary computation and ensure that your code runs smoothly throughout operation. You should also include a README.txt file that explains any design decisions that you made, as well as any additional instructions that may be helpful to the TA.",
-        categoryMark: 10,
-        categoryTotalMark: 0,
-        categoryContent: [
-            {
-                content: "",
-                feedback: "",
-                total: 10,
-                given: 0,
-            },
-        ]
-    },
-];
+      "categoryTitle": "sdsadasd",
+      "categoryDescription": "",
+      "categoryMark": 5,
+      "categoryTotalMark": 0,
+      "categoryContent": [
+        {
+          "content": "kkk",
+          "feedback": "",
+          "given": 0,
+          "total": 3
+        },
+        {
+          "content": "asadas",
+          "feedback": "",
+          "given": 0,
+          "total": 2
+        }
+      ]
+    }
+  ]
 
 const contentWrapper = document.getElementById("contentWrapper");
 
@@ -212,6 +48,8 @@ const contentWrapper = document.getElementById("contentWrapper");
 
 function render()
 {
+    let markingSchemaData = document.getElementById("unique-marking-schema").innerText;
+    markingSchema = JSON.parse(markingSchemaData);
     markingSchema.forEach(item =>
     {
         let container = document.createElement("div");
@@ -405,3 +243,5 @@ function extractResult()
     console.log(result)
 }
 render();
+
+
