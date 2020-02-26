@@ -106,6 +106,7 @@ function createLink()
 {
     let categories = document.getElementsByClassName("category-container");
     let markingSchema = [];
+    let sendToDb = true;
     for (let i = 0; i < categories.length; i++)
     {
         let inputs = categories[i].getElementsByClassName("form-control");
@@ -119,6 +120,11 @@ function createLink()
 
         for (let j = 0; j < inputs.length; j++)
         {
+            if (inputs[j].value === "")
+            {
+                alert("You cannot proceed with empty input");
+                sendToDb = false;
+            }
             if (j == 0)
             {
                 obj.categoryTitle = inputs[j].value;
@@ -144,7 +150,7 @@ function createLink()
         markingSchema.push(obj);
     }
     console.log(markingSchema);
-    if(markingSchema.length)
+    if(markingSchema.length && sendToDb)
     {
         sendToServer(markingSchema);
     }
