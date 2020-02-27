@@ -5,8 +5,9 @@ const addButtonWrapper = document.getElementById("add-category-button");
 
 (function render (){
     addCategoryButtonWrapper = createElement(addButtonWrapper, "div", "add-button-wrapper", "");
-    addCategoryButton = createElement(addCategoryButtonWrapper, "button", "btn btn-warning btn-sm btn-block", "Add Category");
-    createLinkButton = createElement(addCategoryButtonWrapper, "button", "btn btn-danger btn-sm btn-block", "Create Link");
+    createLinkWrapper = createElement(addButtonWrapper, "div", "create-link-wrapper", "");
+    addCategoryButton = createElement(addCategoryButtonWrapper, "button", "btn btn-warning btn-sm custom-add-button", "Add Category");
+    createLinkButton = createElement(createLinkWrapper, "button", "btn btn-danger btn-sm custom-create-link-button", "Create Link");
 
     addCategoryButton.addEventListener("click", () =>
     {
@@ -40,8 +41,8 @@ function createCategory() {
     })
 
     let categoryItemWrapper = createElement(categoryContainer, "div", "row category-content", "");
-    let categoryAddButtonWrapper = createElement(categoryContainer, "div", "col-md-12", "");
-    let categoryItemAddButton = createElement(categoryAddButtonWrapper, "button", "btn btn-primary btn-sm btn-block", "Add item");
+    let categoryAddButtonWrapper = createElement(categoryContainer, "div", "col-md-12 center", "");
+    let categoryItemAddButton = createElement(categoryAddButtonWrapper, "button", "btn btn-primary btn-sm add-item-button", "Add Category Item");
     categoryItemAddButton.addEventListener("click", ()=>
     {
         createCategoryItem(categoryItemWrapper);
@@ -50,22 +51,20 @@ function createCategory() {
 
 function createCategoryItem(binder) 
 {
-    let categoryItemContainer = createElement(binder, "section", "container", "");
+    let categoryItemContainer = createElement(binder, "section", "container item-section", "");
     let categoryItemRow = createElement(categoryItemContainer, "div", "row", "");
 
-    let categoryInputWrapper = createElement(categoryItemRow, "div", "col-md-8", "");
+    let categoryInputWrapper = createElement(categoryItemRow, "div", "col-md-9", "");
     let inputGroup = createElement(categoryInputWrapper, "div", "input-group mb-3", "");
     let inputGroupPrepend = createElement(inputGroup, "div", "input-group-prepend", "");
-    let inputGroupText = createElement(inputGroupPrepend, "span", "input-group-text", "Item content");
+    let inputGroupText = createElement(inputGroupPrepend, "span", "input-group-text", "Description");
     let formControl = createElement(inputGroup, "input", "form-control", "");
-    formControl.id = "content";
 
-    let categoryMarkWrapper = createElement(categoryItemRow, "div", "col-md-3", "");
+    let categoryMarkWrapper = createElement(categoryItemRow, "div", "col-md-2", "");
     let inputMarkGroup = createElement(categoryMarkWrapper, "div", "input-group mb-3", "");
     let inputMarkGroupPrepend = createElement(inputMarkGroup, "div", "input-group-prepend", "");
-    let inputMarkGroupText = createElement(inputMarkGroupPrepend, "span", "input-group-text", "Item mark");
+    let inputMarkGroupText = createElement(inputMarkGroupPrepend, "span", "input-group-text", "Mark");
     let formMarkControl = createElement(inputMarkGroup, "input", "form-control", "");
-    formMarkControl.id = "total-mark"
     formMarkControl.type = "number"
 
     let categoryInputDeleteWrapper = createElement(categoryItemRow, "div", "col-md-1", "");
@@ -88,7 +87,6 @@ function createElement(binder, elem, className, content)
     let div = document.createElement(elem);
     let classList = className.split(" ");
 
-
     if (classList.length)
     {
         classList.forEach(item =>
@@ -105,56 +103,69 @@ function createElement(binder, elem, className, content)
 function createLink()
 {
     let categories = document.getElementsByClassName("category-container");
+    let school = document.getElementById("school").value;
+    let course = document.getElementById("course-code").value;
     let markingSchema = [];
     let sendToDb = true;
-    for (let i = 0; i < categories.length; i++)
+    if(school !== "" && course !== "")
     {
-        let inputs = categories[i].getElementsByClassName("form-control");
-        let obj = {
-            categoryTitle: "",
-            categoryDescription: "",
-            categoryMark: 0,
-            categoryTotalMark: 0,
-            categoryContent:[]
-        }
-
-        for (let j = 0; j < inputs.length; j++)
+        for (let i = 0; i < categories.length; i++)
         {
-            if (inputs[j].value === "")
-            {
-                alert("You cannot proceed with empty input");
-                sendToDb = false;
+            let inputs = categories[i].getElementsByClassName("form-control");
+            let obj = {
+                categoryTitle: "",
+                categoryDescription: "",
+                categoryMark: 0,
+                categoryTotalMark: 0,
+                categoryContent:[]
             }
-            if (j == 0)
+
+            for (let j = 0; j < inputs.length; j++)
             {
-                obj.categoryTitle = inputs[j].value;
-            }
-            else
-            {
-                if (j % 2 != 0)
+                if (inputs[j].value === "" && sendToDb)
                 {
-                    categoryContent = {
-                        content: inputs[j].value,
-                        feedback: "",
-                        given: 0,
-                    },
-                    obj.categoryContent.push(categoryContent)
+                    emptyAlert("You cannot proceed with empty input");
+                    sendToDb = false;
+                    break;
+                }
+                if (j == 0)
+                {
+                    obj.categoryTitle = inputs[j].value;
                 }
                 else
                 {
-                    obj.categoryMark += parseInt(inputs[j].value)
-                    obj.categoryContent[obj.categoryContent.length - 1].total = parseInt(inputs[j].value);
+                    if (j % 2 != 0)
+                    {
+                        categoryContent = {
+                            content: inputs[j].value,
+                            feedback: "",
+                            given: 0,
+                        },
+                        obj.categoryContent.push(categoryContent)
+                    }
+                    else
+                    {
+                        obj.categoryMark += parseInt(inputs[j].value)
+                        obj.categoryContent[obj.categoryContent.length - 1].total = parseInt(inputs[j].value);
+                    }
                 }
             }
+            markingSchema.push(obj);
         }
-        markingSchema.push(obj);
+        if(markingSchema.length && sendToDb)
+        {
+            sendToServer(markingSchema);
+        }
     }
-    if(markingSchema.length && sendToDb)
+    else
     {
-        sendToServer(markingSchema);
+        emptyAlert("School name and course code is mandotory");
     }
 }
-
+function emptyAlert(msg)
+{
+    alert(msg);
+}
 function sendToServer(message)
 {
     var xhr = new XMLHttpRequest();

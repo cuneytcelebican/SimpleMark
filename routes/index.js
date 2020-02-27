@@ -26,7 +26,6 @@ router.get('/:id', function(req, res, next) {
     }
     else
     {
-      console.log(item);
       res.render('markingPage', { title: "Marking Schema", schema: item.marking});
     }
   });
@@ -39,10 +38,12 @@ router.post('/add-marking-schema', function(req, res, next) {
       marking: req.body.message,
     });
     mSchema.save();
-    res.end(mSchema.id)
-    
+    res.end(mSchema.id);
   }
-  res.end("")
+  else
+  {
+    res.end("")
+  }
 });
 
 module.exports = router;

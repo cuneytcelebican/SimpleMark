@@ -15,7 +15,7 @@ label{
 
 .content-wrapper {
   margin-top: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   background: #fff;
   border: 1px solid #ddd;
 }
@@ -114,8 +114,119 @@ textarea {
   font-weight: 500;
   margin-bottom: 5px;
 }
-
 .download-button{
   text-align: center;
   margin: 20px 0px;
+}
+.marking-schema-creator-header {
+  margin: 25px 0px;
+}
+.create-title {
+  font-size: 23px;
+  font-weight: 200;
+  margin-top: -8px;
+  margin-bottom: 25px;
+}
+.course-header-input-wrapper {
+  width: 350px;
+  margin-top: 14px;
+}
+
+input.header-input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #000;
+  width: 100%;
+  font-size: 15px;
+}
+input{
+  outline: none;
+}
+
+.course-description{
+  margin-top: 20px;
+}
+
+.add-button-wrapper {
+  text-align: center;
+  background: #fff;
+  padding: 40px;
+  margin: 0px -15px;
+  border: 2px dashed #ddd;
+}
+
+.custom-add-button{
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 3px solid #ffc108;
+  text-transform: uppercase;
+}
+.create-link-wrapper {
+  text-align: right;
+  margin: 0px -15px;
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+.custom-create-link-button {
+  padding: 15px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.custom-add-button:hover,
+.custom-add-button:active,
+.custom-add-button:visited,
+.custom-add-button:focus {
+  background: transparent !important;
+  background-color: none !important;
+  outline: none !important;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  box-shadow: none !important;
+}
+
+.input-group.mb-3 {
+  margin-bottom: 0px !important;
+}
+.center{
+  text-align: center;
+}
+
+.add-item-button {
+  background: transparent;
+  color: #007bff;
+  font-weight: 700;
+  border: none;
+  border-bottom: 2px solid #007bff;
+  border-radius: 0px;
+}
+
+.add-item-button:hover,
+.add-item-button:active,
+.add-item-button:visited,
+.add-item-button:focus {
+  background: transparent !important;
+  background-color: none !important;
+  outline: none !important;
+  color: #007bff !important;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  box-shadow: none !important;
+}
+
+.input-group-text {
+  font-size: 12px;
+}
+.item-section {
+  margin-bottom: 15px;
+}
+input.form-control {
+  font-size: 13px;
+  padding: 18px 10px;
 }
