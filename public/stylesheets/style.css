@@ -230,3 +230,6 @@ input.form-control {
   font-size: 13px;
   padding: 18px 10px;
 }
+#extractResult > b {
+  text-transform: uppercase;
+}
